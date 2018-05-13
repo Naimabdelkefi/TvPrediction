@@ -38,6 +38,7 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 			<list>
 				<value>com.audiance.tvprediction.model.User</value>
 				<value>com.audiance.tvprediction.model.AudienceData</value>
+				<value>com.audiance.tvprediction.model.CronJob</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

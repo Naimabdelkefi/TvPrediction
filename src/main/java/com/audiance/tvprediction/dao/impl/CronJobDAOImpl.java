@@ -20,7 +20,7 @@ public class CronJobDAOImpl implements CronJobDAO {
 	
 		List<CronJob> cronJobs= new ArrayList<CronJob>();
 
-	cronJobs = getSessionFactory().getCurrentSession().createQuery("from cronjob where name=?")
+	cronJobs = getSessionFactory().getCurrentSession().createQuery("from CronJob where name=?")
 				.setParameter(0, name).list();
 
 		if (cronJobs.size() > 0) {
@@ -30,7 +30,7 @@ public class CronJobDAOImpl implements CronJobDAO {
 		}
 	}
 	public List<CronJob> findAll() {
-		return getSessionFactory().getCurrentSession().createQuery("from cronjob").list();
+		return getSessionFactory().getCurrentSession().createQuery("from CronJob").list();
 	}
 
 	public void save(CronJob arg0) {
@@ -50,7 +50,7 @@ public class CronJobDAOImpl implements CronJobDAO {
 	public CronJob findByIdAdmin(Long arg0) {
 		List<CronJob> cronJobs= new ArrayList<CronJob>();
 
-		cronJobs = getSessionFactory().getCurrentSession().createQuery("from cronjob where user=?")
+		cronJobs = getSessionFactory().getCurrentSession().createQuery("from CronJob where user=?")
 					.setParameter(0, arg0).list();
 
 			if (cronJobs.size() > 0) {

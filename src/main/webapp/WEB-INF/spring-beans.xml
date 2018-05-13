@@ -36,4 +36,14 @@
 		<property name="audienceDataDao" ref="audienceDataDao" />
 	</bean>
 
+	<bean id="CronJobDao"
+		class="com.audiance.tvprediction.dao.impl.CronJobDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+
+	<bean id="CronJobService"
+		class="com.audiance.tvprediction.service.impl.CronJobServiceImpl">
+		<property name="CronJobDao" ref="CronJobDao" />
+	</bean>
 </beans>

@@ -13,12 +13,11 @@
 			<listheader label="Actions" />
 
 		</listhead>
-		<listitem forEach="${audienceDatas}">
-			<listcell label="${each.getDate() } " />
-			<listcell label="${each.getEmission() } " />
-			<listcell label="${each.getChaine() } " />
-			<listcell label="${each.getHeure() } " />
-			<listcell label="${each.getRatio() } " />
+		<listitem forEach="${CronJobs}">
+			<listcell label="${each.getCronjobName() } " />
+			<listcell label="${each.getAdmin() } " />
+			<listcell label="${each.getCommand() } " />
+			<listcell label="${each.getTimePattern() } " />
 			<listcell>
 				<button id="modifier" label="Modifier" />
 				<button id="suprimer" label="Suprimer" />
