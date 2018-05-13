@@ -1,0 +1,28 @@
+<?page title="Sign-up"?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Sign-Up</n:h1>
+	</div>
+	<n:form action="${pageContext.request.contextPath}/login"
+		method="POST">
+		<grid vflex="1">
+				<rows>
+					<row>
+						<label value="UserName" width="150px" />
+						<textbox value="Jerry" width="150px" />
+					</row>
+					<row>
+						<label value="Password" width="150px" />
+						<textbox type="password" value="123456789"
+							width="150px" />
+					</row>
+					<row>
+						<label value="Re-type Password" width="150px" />
+						<textbox type="password" value="123456789"
+							width="150px" />
+					</row>
+				</rows>
+		</grid>
+	</n:form>
+</zk>

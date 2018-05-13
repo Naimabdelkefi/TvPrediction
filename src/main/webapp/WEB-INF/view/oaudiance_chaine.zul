@@ -1,0 +1,45 @@
+<?page title="Audience Data" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Audience Data</n:h1>
+	</div>
+	<div style="text-align: center;">
+			<n:form action="${pageContext.request.contextPath}/oldaudiance/chaine"
+			method="POST">
+		<label>Date 1</label>
+		<datebox name="date1" class="date1" buttonVisible="true"
+			constraint="between 20170901 and 20180131" format="yyyy-MM-dd"/>
+		<label>Date 2</label>
+		<datebox lenient="false" name="date2" class="date1" compact="false" buttonVisible="true"
+			constraint="between 20170901 and 20180131"  format="yyyy-MM-dd"/>
+		<label>Chaine</label>
+		<combobox name="chaine" id="chaine" autodrop="true" />
+
+		<zscript>
+		String[] _dict = { 
+		"France 2", "France 3", "France 5", "France Ô","France 4", "ARTE",
+		"C8", "CSTAR", "Chérie 25",
+		"Gulli",
+		"M6",
+		"Numéro 23", "NRJ 12",
+		"RMC", 
+		"TMC", "TFX","TF1","TF1 Séries Films",
+		"W9","6ter"
+		
+	};
+	 ListModel dictModel= new SimpleListModel(_dict);
+	 chaine.setModel(dictModel);
+	</zscript>
+	<button label="Submit" type="submit" 
+                                width="100px" height="20px" />
+	</n:form>
+	</div>
+	<window
+		apply="com.audiance.tvprediction.view.OldAudianceChaineView">
+
+		<charts id="chart" type="bar" title="Audience Chaine X"
+			subtitle="Entre Date X et Y" />
+	</window>
+
+</zk>

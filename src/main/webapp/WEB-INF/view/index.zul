@@ -1,0 +1,49 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/css/bootstrap.min.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/index.css.dsp" ?>
+<?link rel="stylesheet" type="text/css"
+	href="/css/user-nav.css.dsp" ?>
+<?link rel="stylesheet" type="text/css"
+	href="/css/sidebar.css.dsp" ?>
+<!-- <?link rel="stylesheet" type="text/css"
+	href="/css/search.css.dsp" ?>-->
+
+<?link rel="stylesheet" type="text/css"
+	href="/css/content-header.css.dsp" ?>
+<?link id="theme" rel="stylesheet" type="text/css" href="/css/grey.css.dsp"   ?>
+
+
+
+
+<zk>
+
+	<div
+		style=" box-shadow: rgb(51, 51, 51) 0px 1px 0px;
+    background: linear-gradient(rgb(63, 63, 63) 0%, rgb(34, 34, 34) 100%);
+    border-bottom: 1px solid rgb(85, 85, 85);">
+		<include src="header.zul" />
+		<!-- <div sclass="style-switcher">
+			<n:i class="icon-arrow-left icon-white"></n:i>
+			<label>Style:</label>
+			<a id="grey" href="javascript: changeTheme('grey');"
+			style="background-color: #555555; border-color: #AAAAAA;">
+			</a>
+			<a id="red" href="javascript: changeTheme('red');"
+			style="background-color: #673232;">
+			</a>
+			</div> -->
+
+		<div sclass="content" xmlns:h="native">
+		<zscript><![CDATA[
+			import javax.servlet.http.HttpServletRequest; 
+			HttpServletRequest request = (HttpServletRequest) Executions.getCurrent().getNativeRequest();
+			String Page = request.getAttribute("Page");
+		]]></zscript>	
+			 <include src="${Page}.zul" /> 
+		</div>
+	</div>
+	
+	<script src="/js/jquery.flot.min.js"></script>
+	<script src="/js/jquery.peity.min.js"></script>
+	
+</zk>

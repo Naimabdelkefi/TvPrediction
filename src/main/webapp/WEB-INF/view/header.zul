@@ -1,0 +1,48 @@
+<zk xmlns:n="native">
+	<script src="js/excanvas.min.js" type="" if="${zk.ie lt 9}">
+	</script>
+	<div sclass="header" style="padding:20px;">
+		<image src="/img/logo.png" style="padding-right: 50px;"
+			width="180px" />
+	</div>
+	<div sclass="search">
+
+		<bandbox placeholder="Search ..." />
+	</div>
+	<div sclass="user-nav">
+		<menubar>
+			<menuitem iconSclass="icon icon-white icon-user"
+				label="Profile" />
+			<menu iconSclass="icon icon-white icon-envelope"
+				label="Sign-up">
+				<menupopup sclass="navpp">
+					<menuitem label="As an Admin" />
+					<menuitem label="As a user" />
+				</menupopup>
+			</menu>
+			<menuitem iconSclass="icon icon-white icon-share-alt"
+				label="Logout" />
+		</menubar>
+	</div>
+
+	<navbar orient="vertical" sclass="sidebar">
+		<nav iconSclass="icon icon-white icon-file"
+			label="Les historiques d'audience" badgeText="3">
+			<navitem label="Par Date" />
+			<navitem label="Par Emission" />
+			<navitem label="Par Chaine" />
+		</nav>
+		<nav iconSclass="icon icon-white icon-file"
+			label="Les audiences prédit" badgeText="3">
+			<navitem label="Par Date" />
+			<navitem label="Par Emission" />
+			<navitem label="Par Chaine" />
+		</nav>
+
+		<nav iconSclass="icon icon-white icon-file"
+			label="Admin Dashboard" badgeText="2">
+			<navitem label="CronJob" />
+			<navitem label="Audience Data Manger" />
+		</nav>
+	</navbar>
+</zk>

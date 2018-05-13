@@ -1,0 +1,28 @@
+<?page title="Audience Data" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Audience Data</n:h1>
+	</div>
+	<div style="text-align: center;">
+		<n:form
+			action="${pageContext.request.contextPath}/oldaudiance/emission"
+			method="POST">
+			<label>Emission</label>
+			<textbox name="emission" width="150px" tabindex="1" />
+			<button label="add" type="submit" width="100px"
+				height="20px" />
+		</n:form>
+		<n:form
+			action="${pageContext.request.contextPath}/oldaudiance/emission">
+			<button label="new" type="submit" width="100px"
+				height="20px" />
+		</n:form>
+	</div>
+	<window
+		apply="com.audiance.tvprediction.view.OldAudianceEmissionView">
+
+		<charts id="chart" type="line" title="Audience Emission X" />
+	</window>
+
+</zk>

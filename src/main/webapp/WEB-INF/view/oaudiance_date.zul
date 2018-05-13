@@ -1,0 +1,23 @@
+<?page title="Audience Data" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Audience Data</n:h1>
+	</div>
+	<div style="text-align: center;">
+				<n:form action="${pageContext.request.contextPath}/oldaudiance/date"
+			method="POST">
+		<label>Date</label>
+		<datebox name="date" lenient="false" compact="false"
+			buttonVisible="true" constraint="between 20170901 and 20180131" format="yyyy-MM-dd"/>
+		<button label="Submit" type="submit"
+			width="100px" height="20px" />
+		</n:form>
+	</div>
+	<window
+		apply="com.audiance.tvprediction.view.OldAudianceDateView">
+
+		<charts id="chart" type="column" title="Audience A la date X" />
+	</window>
+
+</zk>

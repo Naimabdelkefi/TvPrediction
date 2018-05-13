@@ -1,0 +1,28 @@
+<?page title="Login" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Login</n:h1>
+	</div>
+	<n:form action="${pageContext.request.contextPath}/login"
+		method="POST">
+		<grid vflex="2">
+			<rows>
+				<row>
+					<label value="UserName" width="150px" />
+					<textbox value="" width="150px" name="username" />
+				</row>
+				<row>
+					<label value="Password" width="150px" />
+					<textbox type="password" value="" width="150px"
+						name="password" />
+				</row>
+				<row>
+					<label value="" width="150px" />
+					<button label="Login" type="submit"
+						class="btn-default dropdown-toggle" />
+				</row>
+			</rows>
+		</grid>
+	</n:form>
+</zk>

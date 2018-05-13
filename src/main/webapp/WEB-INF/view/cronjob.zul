@@ -1,0 +1,47 @@
+<?page title="Admin" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>CronJob</n:h1>
+	</div>
+	<listbox id="box" multiple="true" rows="5">
+		<listhead>
+			<listheader label="CronJob" />
+			<listheader label="Admin" />
+			<listheader label="Command" />
+			<listheader label="TimePattern" />
+			<listheader label="Actions" />
+
+		</listhead>
+		<listitem forEach="${audienceDatas}">
+			<listcell label="${each.getDate() } " />
+			<listcell label="${each.getEmission() } " />
+			<listcell label="${each.getChaine() } " />
+			<listcell label="${each.getHeure() } " />
+			<listcell label="${each.getRatio() } " />
+			<listcell>
+				<button id="modifier" label="Modifier" />
+				<button id="suprimer" label="Suprimer" />
+				<button id="excution" label="Excuter" />
+				<button id="planifier" label="Planification" />
+			</listcell>
+		</listitem>
+	</listbox>
+	<groupbox>
+		<caption label="Panel" />
+		<label>Time:</label>
+		<datebox lenient="false" name="date2" class="date1"
+			compact="false" buttonVisible="true"
+			constraint="between 20170901 and 20180131" format="yyyy-MM-dd" />
+		<label>Cronjob:</label>
+		<textbox id="cronjob" cols="15" />
+
+		<label>Command:</label>
+		<textbox id="command" cols="15" />
+
+
+
+		<button id="ajouter" label="Ajouter" />
+
+	</groupbox>
+</zk>

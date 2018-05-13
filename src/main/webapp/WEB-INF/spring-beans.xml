@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<bean id="chartViewModel"
+		class="com.audiance.tvprediction.viewmodel.ChartViewModelImpl"
+		scope="session">
+		<aop:scoped-proxy />
+	</bean>
+
+	<bean id="userDao"
+		class="com.audiance.tvprediction.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+
+	<bean id="userService"
+		class="com.audiance.tvprediction.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+
+
+
+	<bean id="audienceDataDao"
+		class="com.audiance.tvprediction.dao.impl.AudienceDataDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+
+	<bean id="audienceDataService"
+		class="com.audiance.tvprediction.service.impl.AudienceDataServiceImpl">
+		<property name="audienceDataDao" ref="audienceDataDao" />
+	</bean>
+
+</beans>

@@ -1,0 +1,63 @@
+<?page title="Admin" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Admin</n:h1>
+	</div>
+	<listbox id="box" multiple="true" rows="5">
+		<listhead>
+			<listheader label="Date" />
+			<listheader label="Emission" />
+			<listheader label="Chaine" />
+			<listheader label="Heure" />
+			<listheader label="Ratio" />
+			<listheader label="Action" />
+		</listhead>
+		<listitem forEach="${audienceDatas}">
+			<listcell label="${each.getDate() } " />
+			<listcell label="${each.getEmission() } " />
+			<listcell label="${each.getChaine() } " />
+			<listcell label="${each.getHeure() } " />
+			<listcell label="${each.getRatio() } " />
+			<listcell>
+				<button label="Modifier" />
+				<button  label="Suprimer" />
+			</listcell>
+		</listitem>
+	</listbox>
+	<groupbox>
+		<caption label="Panel" />
+		<label>Date:</label>
+		<datebox lenient="false" name="date2" class="date1"
+			compact="false" buttonVisible="true"
+			constraint="between 20170901 and 20180131" format="yyyy-MM-dd" />
+		<label>Emission:</label>
+		<textbox id="emission" cols="25" />
+		<label>Chaine</label>
+		<combobox name="chaine" id="chaine" autodrop="true" />
+
+		<zscript>
+		String[] _dict = { 
+		"France 2", "France 3", "France 5", "France Ô","France 4", "ARTE",
+		"C8", "CSTAR", "Chérie 25",
+		"Gulli",
+		"M6",
+		"Numéro 23", "NRJ 12",
+		"RMC", 
+		"TMC", "TFX","TF1","TF1 Séries Films",
+		"W9","6ter"
+		
+	};
+	 ListModel dictModel= new SimpleListModel(_dict);
+	 chaine.setModel(dictModel);
+	</zscript>
+		<label>Heure:</label>
+		<textbox id="heure" cols="6" />
+		<label>Ratio:</label>
+		<textbox id="ratio" cols="4" />
+		
+		
+		<button id="ajouter" label="Ajouter" />
+		<button id="search" label="Search" />
+	</groupbox>
+</zk>
