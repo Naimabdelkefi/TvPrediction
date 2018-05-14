@@ -36,14 +36,23 @@
 		<property name="audienceDataDao" ref="audienceDataDao" />
 	</bean>
 
-	<bean id="CronJobDao"
+	<bean id="cronJobDao"
 		class="com.audiance.tvprediction.dao.impl.CronJobDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 
 	</bean>
 
-	<bean id="CronJobService"
+	<bean id="cronJobService"
 		class="com.audiance.tvprediction.service.impl.CronJobServiceImpl">
-		<property name="CronJobDao" ref="CronJobDao" />
+		<property name="cronJobDao" ref="cronJobDao" />
+	</bean>
+
+	<bean id="taskScheduler"
+		class="org.springframework.scheduling.concurrent.ConcurrentTaskScheduler" />
+
+	<bean id="cronScheduler"
+		class="com.audiance.tvprediction.job.DatasetJob">
+		<constructor-arg ref="cronJobService" />
+		<constructor-arg ref="taskScheduler" />
 	</bean>
 </beans>

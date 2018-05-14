@@ -4,25 +4,25 @@
 	<div sclass="content-header">
 		<n:h1>Sign-Up</n:h1>
 	</div>
-	<n:form action="${pageContext.request.contextPath}/login"
+	<n:form action="${pageContext.request.contextPath}/signup"
 		method="POST">
 		<grid vflex="1">
-				<rows>
-					<row>
-						<label value="UserName" width="150px" />
-						<textbox value="Jerry" width="150px" />
-					</row>
-					<row>
-						<label value="Password" width="150px" />
-						<textbox type="password" value="123456789"
-							width="150px" />
-					</row>
-					<row>
-						<label value="Re-type Password" width="150px" />
-						<textbox type="password" value="123456789"
-							width="150px" />
-					</row>
-				</rows>
+			<rows>
+				<row>
+					<label value="UserName" width="150px" />
+					<textbox value="" width="150px" name="username" />
+				</row>
+				<row>
+					<label value="Password" width="150px" />
+					<textbox type="password" value="" width="150px"
+						name="password" />
+				</row>
+				<row>
+					<label value="" width="150px" />
+					<button label="Sign-up" type="submit"
+						class="btn-default dropdown-toggle" />
+				</row>
+			</rows>
 		</grid>
 	</n:form>
 </zk>

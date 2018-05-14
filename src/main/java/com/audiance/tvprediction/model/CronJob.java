@@ -17,44 +17,53 @@ public class CronJob {
 	private Admin admin;
 	private String CronjobName;
 	private String Command;
-	private String TimePattern ;
-	
+	private String TimePattern;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return Id;
 	}
+
 	public void setId(long id) {
 		Id = id;
 	}
-	@Column(name = "cronjobname", nullable = false)
+
+	@Column(name = "cronjobname", nullable = false, unique = true)
 	public String getCronjobName() {
 		return CronjobName;
 	}
+
 	public void setCronjobName(String cronjobName) {
 		CronjobName = cronjobName;
 	}
+
 	@Column(name = "command", nullable = false)
 	public String getCommand() {
 		return Command;
 	}
+
 	public void setCommand(String command) {
 		Command = command;
 	}
+
 	@Column(name = "timepattern", nullable = false)
 	public String getTimePattern() {
 		return TimePattern;
 	}
+
 	public void setTimePattern(String timePattern) {
 		TimePattern = timePattern;
 	}
+
 	@ManyToOne
 	@JoinColumn(name = "user", referencedColumnName = "id")
 	public User getAdmin() {
 		return admin;
 	}
+
 	public void setAdmin(User admin) {
 		admin = admin;
 	}
-	
+
 }

@@ -15,4 +15,6 @@ public interface CronJobService {
 	public CronJob getCronJobById(Long arg0);
 
 	public CronJob getDataByIdAdmin(long arg0);
+
+	CronJob getCronjobByName(String name);
 }

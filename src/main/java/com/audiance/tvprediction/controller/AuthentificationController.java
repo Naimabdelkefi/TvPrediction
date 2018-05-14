@@ -41,11 +41,17 @@ public class AuthentificationController {
 
 		return "index";
 	}
-
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signupPost(@ModelAttribute User user, HttpServletRequest request) {
+		 userService.saveUser(user);
+			return "redirect:home";
+		}
+	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-	@ResponseBody
-	public String home() {
-		return "Home";
+	public String home(HttpServletRequest request) {
+		request.setAttribute("Page", "home");
+
+		return "index";
 
 	}
 

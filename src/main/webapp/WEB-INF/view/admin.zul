@@ -20,7 +20,6 @@
 			<listcell label="${each.getHeure() } " />
 			<listcell label="${each.getRatio() } " />
 			<listcell>
-				<button label="Modifier" />
 				<button  label="Suprimer" />
 			</listcell>
 		</listitem>

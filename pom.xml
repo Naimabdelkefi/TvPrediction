@@ -39,7 +39,7 @@
 			<artifactId>zk</artifactId>
 			<version>7.0.0</version>
 		</dependency>
-		
+
 
 
 		<dependency>
@@ -109,6 +109,9 @@
 		</dependency>
 
 
+
+
+
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -116,9 +119,16 @@
 			<version>4.0.2.RELEASE</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>4.0.2.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 			<version>4.0.2.RELEASE</version>
 		</dependency>
 

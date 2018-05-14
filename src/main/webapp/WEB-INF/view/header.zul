@@ -17,7 +17,7 @@
 				label="Sign-up">
 				<menupopup sclass="navpp">
 					<menuitem label="As an Admin" />
-					<menuitem label="As a user" />
+					<menuitem label="As a user" href="/signup"/>
 				</menupopup>
 			</menu>
 			<menuitem iconSclass="icon icon-white icon-share-alt"
@@ -28,9 +28,9 @@
 	<navbar orient="vertical" sclass="sidebar">
 		<nav iconSclass="icon icon-white icon-file"
 			label="Les historiques d'audience" badgeText="3">
-			<navitem label="Par Date" />
-			<navitem label="Par Emission" />
-			<navitem label="Par Chaine" />
+			<navitem label="Par Date" href="/TvPrediction/oldaudiance/date"/>
+			<navitem label="Par Emission" href="/TvPrediction/oldaudiance/emission"/>
+			<navitem label="Par Chaine" href="/TvPrediction/oldaudiance/chaine"/>
 		</nav>
 		<nav iconSclass="icon icon-white icon-file"
 			label="Les audiences prédit" badgeText="3">
@@ -41,8 +41,8 @@
 
 		<nav iconSclass="icon icon-white icon-file"
 			label="Admin Dashboard" badgeText="2">
-			<navitem label="CronJob" />
-			<navitem label="Audience Data Manger" />
+			<navitem label="CronJob" href="/TvPrediction/admin/cronjob"/>
+			<navitem label="Audience Data Manger" href="/TvPrediction/admin" />
 		</nav>
 	</navbar>
 </zk>

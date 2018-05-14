@@ -5,6 +5,7 @@ import java.util.List;
 import com.audiance.tvprediction.model.CronJob;;
 
 public interface CronJobDAO {
+	
 	CronJob findByCronjobName(String name);
 
 	List<CronJob> findAll();
@@ -14,6 +15,7 @@ public interface CronJobDAO {
 	void delete(CronJob arg0);
 
 	CronJob findById(Long arg0);
+
 	CronJob findByIdAdmin(Long arg0);
 
 }
