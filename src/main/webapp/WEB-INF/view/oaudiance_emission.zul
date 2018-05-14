@@ -14,7 +14,7 @@
 				height="20px" />
 		</n:form>
 		<n:form
-			action="${pageContext.request.contextPath}/oldaudiance/emission">
+			action="${pageContext.request.contextPath}/oldaudiance/emission1">
 			<button label="new" type="submit" width="100px"
 				height="20px" />
 		</n:form>

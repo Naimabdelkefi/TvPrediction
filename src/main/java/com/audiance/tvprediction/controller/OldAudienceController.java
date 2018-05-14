@@ -41,7 +41,7 @@ public class OldAudienceController {
 		return "redirect:emission";
 	}
 
-	@RequestMapping(value = "/oldaudiance/emission", method = RequestMethod.GET)
+	@RequestMapping( value = { "/oldaudiance/emission","/oldaudiance/emission1" }, method = RequestMethod.GET)
 
 	public String oldemissionGET(HttpServletRequest request, HttpSession session) {
 		if (!chartViewModel.getDataType().equals("emission")) {
