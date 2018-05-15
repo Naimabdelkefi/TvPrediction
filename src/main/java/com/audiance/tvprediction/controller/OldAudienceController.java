@@ -1,5 +1,9 @@
 package com.audiance.tvprediction.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,18 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.zkoss.chart.model.CategoryModel;
 import org.zkoss.chart.model.DefaultCategoryModel;
 
 import com.audiance.tvprediction.model.AudienceData;
-import com.audiance.tvprediction.model.User;
 import com.audiance.tvprediction.service.AudienceDataService;
-import com.audiance.tvprediction.service.UserService;
 import com.audiance.tvprediction.viewmodel.ChartViewModel;
 
 @Controller
@@ -30,7 +31,7 @@ public class OldAudienceController {
 	@Autowired
 	ChartViewModel chartViewModel;
 
-		@RequestMapping(value = "/oldaudiance/emission", method = RequestMethod.POST)
+	@RequestMapping(value = "/oldaudiance/emission", method = RequestMethod.POST)
 	public String oldemissionPOST(@RequestParam("emission") String emssion, HttpServletRequest request) {
 		CategoryModel categoryModel = new DefaultCategoryModel();
 		List<AudienceData> audienceDatas = audienceDataService.getDataByEmission(emssion);
@@ -41,7 +42,7 @@ public class OldAudienceController {
 		return "redirect:emission";
 	}
 
-	@RequestMapping( value = { "/oldaudiance/emission","/oldaudiance/emission1" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/oldaudiance/emission", "/oldaudiance/emission1" }, method = RequestMethod.GET)
 
 	public String oldemissionGET(HttpServletRequest request, HttpSession session) {
 		if (!chartViewModel.getDataType().equals("emission")) {
@@ -70,17 +71,17 @@ public class OldAudienceController {
 			chartViewModel.setDataType("chaine");
 			chartViewModel.applyChaine();
 		}
-		request.setAttribute("Page", "oaudiance_chaine");
-
-		return "index";
+		
+		return "redirect:chaine";
+		
 	}
 
 	@RequestMapping(value = "/oldaudiance/chaine", method = RequestMethod.GET)
 	public String oldchaineGet(HttpServletRequest request, HttpSession session) {
 		if (!chartViewModel.getDataType().equals("chaine")) {
 			CategoryModel categoryModel = new DefaultCategoryModel();
-			List<AudienceData> audienceDatas = audienceDataService.getDataByDateIntAndChaine("2017-09-01", "2017-09-08",
-					"France 2");
+			List<AudienceData> audienceDatas = audienceDataService.getDataByDateIntAndChaine("2017-10-01", "2017-10-08",
+					"France 3");
 			chartViewModel.getAudienceDatas().clear();
 			chartViewModel.getAudienceDatas().addAll(audienceDatas);
 			chartViewModel.setCategoryModel(categoryModel);
@@ -120,6 +121,31 @@ public class OldAudienceController {
 		chartViewModel.setDataType("date");
 		chartViewModel.applyDate();
 		return "redirect:date";
+	}
+
+	@RequestMapping(value = "/prediction", method = RequestMethod.GET)
+	public String predict(HttpServletRequest request, ModelMap model) throws IOException {
+		request.setAttribute("Page", "pred");
+		model.addAttribute("str", "-1");
+		return "index";
+	}
+
+	@RequestMapping(value = "/prediction", method = RequestMethod.POST)
+	public String predictionPost(@RequestParam("date") String date, @RequestParam("chaine") String chaine,
+			@RequestParam("emission") String emission, @RequestParam("heure") String heure, HttpServletRequest request,
+			ModelMap model) throws IOException {
+		Runtime r = Runtime.getRuntime();
+		String contextPath = request.getRealPath(File.separator);
+		String dir = contextPath + File.separator + "scripts" + File.separator;
+		Process p = r.exec("cmd /c " + dir + "a.bat " + dir + " \"" + date + "\" \"" + emission + "\" \"" + chaine
+				+ "\" \"" + heure + "\"");
+		BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		String line = is.readLine();
+        p.destroy();
+		request.setAttribute("Page", "pred");
+		model.addAttribute("str", line);
+		System.out.println(line);
+		return "index";
 	}
 
 }

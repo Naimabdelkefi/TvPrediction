@@ -13,11 +13,11 @@
 			<button label="add" type="submit" width="100px"
 				height="20px" />
 		</n:form>
-		<n:form
+		<!-- <n:form
 			action="${pageContext.request.contextPath}/oldaudiance/emission1">
 			<button label="new" type="submit" width="100px"
 				height="20px" />
-		</n:form>
+		</n:form> -->
 	</div>
 	<window
 		apply="com.audiance.tvprediction.view.OldAudianceEmissionView">

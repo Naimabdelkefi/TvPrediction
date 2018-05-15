@@ -16,12 +16,12 @@
 			<menu iconSclass="icon icon-white icon-envelope"
 				label="Sign-up">
 				<menupopup sclass="navpp">
-					<menuitem label="As an Admin" />
-					<menuitem label="As a user" href="/signup"/>
+					<menuitem label="As an Admin" href="/signup"/>
+					<menuitem label="As a user" />
 				</menupopup>
 			</menu>
 			<menuitem iconSclass="icon icon-white icon-share-alt"
-				label="Logout" />
+				label="LogIn" href="/login" />
 		</menubar>
 	</div>
 

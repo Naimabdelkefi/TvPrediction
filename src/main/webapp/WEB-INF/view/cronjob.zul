@@ -7,40 +7,30 @@
 	<listbox id="box" multiple="true" rows="5">
 		<listhead>
 			<listheader label="CronJob" />
-			<listheader label="Admin" />
 			<listheader label="Command" />
 			<listheader label="TimePattern" />
-			<listheader label="Actions" />
 
 		</listhead>
 		<listitem forEach="${CronJobs}">
 			<listcell label="${each.getCronjobName() } " />
-			<listcell label="${each.getAdmin() } " />
 			<listcell label="${each.getCommand() } " />
 			<listcell label="${each.getTimePattern() } " />
-			<listcell>
-				<button id="modifier" label="Modifier" />
-				<button id="suprimer" label="Suprimer" />
-				<button id="excution" label="Excuter" />
-				<button id="planifier" label="Planification" />
-			</listcell>
 		</listitem>
 	</listbox>
+
 	<groupbox>
+
 		<caption label="Panel" />
-		<label>Time:</label>
-		<datebox lenient="false" name="date2" class="date1"
-			compact="false" buttonVisible="true"
-			constraint="between 20170901 and 20180131" format="yyyy-MM-dd" />
-		<label>Cronjob:</label>
-		<textbox id="cronjob" cols="15" />
-
-		<label>Command:</label>
-		<textbox id="command" cols="15" />
-
-
-
-		<button id="ajouter" label="Ajouter" />
-
+		<n:form
+			action="${pageContext.request.contextPath}/admin/cronjob"
+			method="POST">
+			<label>TimePattren:</label>
+			<textbox name="TimePattern" cols="15" />
+			<label>Cronjob:</label>
+			<textbox name="CronjobName" cols="15" />
+			<label>Command:</label>
+			<textbox name="Command" cols="15" />
+			<button type="submit" label="Ajouter" />
+		</n:form>
 	</groupbox>
 </zk>

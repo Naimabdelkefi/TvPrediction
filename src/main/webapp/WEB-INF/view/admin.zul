@@ -20,22 +20,28 @@
 			<listcell label="${each.getHeure() } " />
 			<listcell label="${each.getRatio() } " />
 			<listcell>
-				<button  label="Suprimer" />
+				<n:form method="POST"
+					action="${pageContext.request.contextPath}/admin/delete/${each.getId()}">
+					<button label="Suprimer" type="submit">
+						<custom-attributes audienceData="${each}" />
+					</button>
+				</n:form>
 			</listcell>
 		</listitem>
 	</listbox>
 	<groupbox>
 		<caption label="Panel" />
-		<label>Date:</label>
-		<datebox lenient="false" name="date2" class="date1"
-			compact="false" buttonVisible="true"
-			constraint="between 20170901 and 20180131" format="yyyy-MM-dd" />
-		<label>Emission:</label>
-		<textbox id="emission" cols="25" />
-		<label>Chaine</label>
-		<combobox name="chaine" id="chaine" autodrop="true" />
+		<n:form method="POST"
+			action="${pageContext.request.contextPath}/admin/add">
+			<label>Date:</label>
+			<datebox lenient="false" name="Date" class="date1"
+				compact="false" buttonVisible="true" format="yyyy-MM-dd" />
+			<label>Emission:</label>
+			<textbox name="Emission" cols="25" />
+			<label>Chaine</label>
+			<combobox name="Chaine" id="chaine" autodrop="true" />
 
-		<zscript>
+			<zscript>
 		String[] _dict = { 
 		"France 2", "France 3", "France 5", "France Ô","France 4", "ARTE",
 		"C8", "CSTAR", "Chérie 25",
@@ -51,12 +57,12 @@
 	 chaine.setModel(dictModel);
 	</zscript>
 		<label>Heure:</label>
-		<textbox id="heure" cols="6" />
+		<textbox name="Heure" cols="6" />
 		<label>Ratio:</label>
-		<textbox id="ratio" cols="4" />
+		<textbox name="Ratio" cols="4" />
 		
 		
-		<button id="ajouter" label="Ajouter" />
-		<button id="search" label="Search" />
+		<button id="ajouter" label="Ajouter" type="submit"  />
+		</n:form>
 	</groupbox>
 </zk>

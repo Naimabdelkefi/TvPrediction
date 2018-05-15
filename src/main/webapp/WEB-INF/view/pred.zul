@@ -1,0 +1,54 @@
+<?page title="Audience Data" ?>
+
+<zk xmlns:n="native">
+	<div sclass="content-header">
+		<n:h1>Audience Data</n:h1>
+	</div>
+	<div style="text-align: center;">
+		<label>Entrer les données d'audience souhaite prédit:</label>
+		<n:form action="${pageContext.request.contextPath}/prediction"
+			method="POST">
+			<label>Date</label>
+			<datebox name="date" class="date1" buttonVisible="true"
+				format="dd-MM-yyyy" />
+			<label>Chaine</label>
+			<combobox name="chaine" id="chaine" autodrop="true" />
+
+			<zscript>
+		String[] _dict = { 
+		"France 2", "France 3", "France 5", "France Ô","France 4", "ARTE",
+		"C8", "CSTAR", "Chérie 25",
+		"Gulli",
+		"M6",
+		"Numéro 23", "NRJ 12",
+		"RMC", 
+		"TMC", "TFX","TF1","TF1 Séries Films",
+		"W9","6ter"
+		
+	};
+	 ListModel dictModel= new SimpleListModel(_dict);
+	 chaine.setModel(dictModel);
+	</zscript>
+	<label>Heure</label>
+		<combobox name="heure" id="heure" autodrop="true" />
+
+			<zscript>
+		String[] _dict1 = { 
+		"Unknown", "20h50", "20h55", "21h00"
+	};
+	 ListModel dictModel1= new SimpleListModel(_dict1);
+	 heure.setModel(dictModel1);
+	</zscript>
+
+	<textbox name="emission" width="150px" tabindex="1" />
+	<button label="Submit" type="submit" 
+                                width="100px" height="20px" />
+	</n:form>
+	</div>
+	<div if="${str != '-1' }" style="text-align: center;margin:50px;">
+		<label>Le taux predit est:</label>
+		<n:h1 style="">${str}%</n:h1>
+	
+	</div>
+
+</zk>
