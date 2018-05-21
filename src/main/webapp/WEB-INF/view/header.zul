@@ -13,13 +13,13 @@
 		<menubar>
 			<menuitem iconSclass="icon icon-white icon-user"
 				label="Profile" />
-			<menu iconSclass="icon icon-white icon-envelope"
-				label="Sign-up">
-				<menupopup sclass="navpp">
+			<menuitem iconSclass="icon icon-white icon-envelope"
+				label="Sign-up" href="/signup"/>
+				<!-- <menupopup sclass="navpp">
 					<menuitem label="As an Admin" href="/signup"/>
 					<menuitem label="As a user" />
 				</menupopup>
-			</menu>
+			</menu> -->
 			<menuitem iconSclass="icon icon-white icon-share-alt"
 				label="LogIn" href="/login" />
 		</menubar>
@@ -32,12 +32,10 @@
 			<navitem label="Par Emission" href="/TvPrediction/oldaudiance/emission"/>
 			<navitem label="Par Chaine" href="/TvPrediction/oldaudiance/chaine"/>
 		</nav>
-		<nav iconSclass="icon icon-white icon-file"
-			label="Les audiences prédit" badgeText="3">
-			<navitem label="Par Date" />
-			<navitem label="Par Emission" />
-			<navitem label="Par Chaine" />
-		</nav>
+		<navitem iconSclass="icon icon-white icon-file"
+			label="Les audiences prédit"  href="/TvPrediction/prediction">
+		
+		</navitem>
 
 		<nav iconSclass="icon icon-white icon-file"
 			label="Admin Dashboard" badgeText="2">

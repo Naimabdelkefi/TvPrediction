@@ -2,7 +2,7 @@
 
 <zk xmlns:n="native">
 	<div sclass="content-header">
-		<n:h1>home</n:h1>
+		<n:h1>Home</n:h1>
 	</div>
 	<image src="/img/home.png" style="padding-left: 200px;"
 			/>

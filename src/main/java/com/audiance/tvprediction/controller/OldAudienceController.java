@@ -62,7 +62,7 @@ public class OldAudienceController {
 	@RequestMapping(value = "/oldaudiance/chaine", method = RequestMethod.POST)
 	public String oldchainePOST(@RequestParam("date1") String date1, @RequestParam("date2") String date2,
 			@RequestParam("chaine") String chaine, HttpServletRequest request) {
-		if (!chartViewModel.getDataType().equals("chaine")) {
+		
 			CategoryModel categoryModel = new DefaultCategoryModel();
 			List<AudienceData> audienceDatas = audienceDataService.getDataByDateIntAndChaine(date1, date2, chaine);
 			chartViewModel.getAudienceDatas().clear();
@@ -70,7 +70,7 @@ public class OldAudienceController {
 			chartViewModel.setCategoryModel(categoryModel);
 			chartViewModel.setDataType("chaine");
 			chartViewModel.applyChaine();
-		}
+		
 		
 		return "redirect:chaine";
 		

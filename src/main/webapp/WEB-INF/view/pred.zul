@@ -2,7 +2,7 @@
 
 <zk xmlns:n="native">
 	<div sclass="content-header">
-		<n:h1>Audience Data</n:h1>
+		<n:h1>Audiences Prédit</n:h1>
 	</div>
 	<div style="text-align: center;">
 		<label>Entrer les données d'audience souhaite prédit:</label>
